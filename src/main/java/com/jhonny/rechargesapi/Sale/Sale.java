@@ -1,8 +1,12 @@
 package com.jhonny.rechargesapi.Sale;
 
-import com.jhonny.rechargesapi.Operator.Operator;
+import java.sql.Date;
+import com.jhonny.rechargesapi.Customer.Customer;
+import com.jhonny.rechargesapi.Recharge.Recharge;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -16,11 +20,14 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Sale {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne
-    @JoinColumn(name = "operator_id")
-    private Operator operator;
-    private double value;
+    @JoinColumn(name = "recharge_id")
+    private Recharge recharge;
+    private Date saleDate;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
     private String person;
 }

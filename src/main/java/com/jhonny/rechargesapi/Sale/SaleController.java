@@ -1,4 +1,4 @@
-package com.jhonny.rechargesapi.Recharge;
+package com.jhonny.rechargesapi.Sale;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/recharge")
+@RequestMapping("/sale")
 @RequiredArgsConstructor
-public class RechargeController {
+public class SaleController {
 
-    private final RechargeService rechargeService;
+    private final SaleService saleService;
 
     @PostMapping
-    public void createRecharge(@RequestBody Recharge recharge){
-        rechargeService.createRecharge(recharge);
+    public void createSale(@RequestBody Sale sale){
+        saleService.createSale(sale);
     }
     
 }
